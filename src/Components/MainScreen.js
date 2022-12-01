@@ -44,11 +44,23 @@ function MainScreen() {
 
   return (
     <View>
-      {showFloors && (
+      {showFloors ? (
         <Text
           style={[styles.totalTxt, { color: sqftErr(), marginBottom: -10 }]}
         >
           Overall BUA: {overallBua} Sq.ft.
+        </Text>
+      ) : (
+        <Text
+          style={{
+            marginTop: 25,
+            marginBottom: -15,
+            fontWeight: 800,
+            fontSize: 25,
+            textAlign: "center",
+          }}
+        >
+          Sq.ft. Calculator
         </Text>
       )}
       {!showFloors ? (
@@ -60,6 +72,8 @@ function MainScreen() {
                 onChangeText={(val) => setBua(val)}
                 style={styles.buaEntry}
                 keyboardType={"numeric"}
+                placeholder='ex. "1200"'
+                placeholderTextColor={"#c9c9c9"}
               />
             </View>
             <View style={{ width: "45%" }}>
@@ -68,6 +82,8 @@ function MainScreen() {
                 onChangeText={(val) => setNoOfFlors(val)}
                 style={styles.buaEntry}
                 keyboardType={"numeric"}
+                placeholder='ex. "2"'
+                placeholderTextColor={"#c9c9c9"}
               />
             </View>
           </View>
@@ -75,7 +91,7 @@ function MainScreen() {
             style={styles.nextBtn}
             onPress={() => bua && noOfFlors && setShowFloors(true)}
           >
-            <Text style={{ color: "white" }}>Next</Text>
+            <Text>Next</Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -100,7 +116,10 @@ const styles = StyleSheet.create({
   labelTxt: {},
   buaEntry: {
     borderWidth: 1,
-    paddingLeft: 5,
+    borderColor: "grey",
+    padding: 5,
+    marginTop: 2,
+    borderRadius: 2,
   },
   containerVue: {
     width: "100%",
@@ -113,8 +132,10 @@ const styles = StyleSheet.create({
     marginTop: 25,
     paddingHorizontal: 15,
     paddingVertical: 8,
-    backgroundColor: "grey",
+    backgroundColor: "#faeab4",
     borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#969696",
   },
   containerBg: {
     maxWidth: 375,

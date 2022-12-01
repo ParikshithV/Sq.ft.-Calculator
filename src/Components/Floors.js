@@ -59,9 +59,6 @@ export default Floors;
 
 const styles = StyleSheet.create({
   labelTxt: {},
-  buaEntry: {
-    borderWidth: 1,
-  },
   containerBg: {
     maxWidth: 375,
     borderWidth: 1,
